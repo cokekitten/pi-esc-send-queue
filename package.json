@@ -1,0 +1,29 @@
+{
+  "name": "pi-esc-send-queue",
+  "version": "0.1.0",
+  "description": "Pi editor extension: Esc with queued messages aborts the current run and immediately submits the queue.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "esc",
+    "editor",
+    "queue",
+    "tui"
+  ],
+  "files": [
+    "extensions/",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions/esc-send-queue.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  }
+}
