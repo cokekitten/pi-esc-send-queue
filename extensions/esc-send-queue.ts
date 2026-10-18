@@ -140,9 +140,13 @@ export default function (pi: ExtensionAPI) {
 		latestCtx = ctx;
 		if (ctx.mode !== "tui") return;
 
+		// `embedWorkingStatus` must be opted into explicitly: CustomEditor defaults it to
+		// false, and pi then falls back to rendering "Working" on its own line above the
+		// editor instead of inside the editor's top border (pi >= 1.3). Passing only this
+		// option leaves the other editor defaults (paddingX, autocompleteMaxVisible) as-is.
 		ctx.ui.setEditorComponent(
 			(tui: TUI, theme: EditorTheme, keybindings: KeybindingsManager) =>
-				new EscSendQueueEditor(tui, theme, keybindings),
+				new EscSendQueueEditor(tui, theme, keybindings, { embedWorkingStatus: true }),
 		);
 	});
 }
